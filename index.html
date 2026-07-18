@@ -20,24 +20,31 @@
     <section class="input-pane" aria-label="Document text">
       <div class="pane-head">
         <div>
-          <h2>Paste the agreement</h2>
+          <h2>Paste or open the agreement</h2>
           <p>Lease, loan, offer, service agreement, or terms.</p>
         </div>
         <span class="local-badge">Runs here</span>
       </div>
-      <textarea id="documentText" spellcheck="false" placeholder="Paste the text you are being asked to agree to."></textarea>
+      <textarea id="documentText" spellcheck="false" placeholder="Paste the text you are being asked to agree to, or drop a PDF, Word, or text file here."></textarea>
       <div class="actions">
         <button id="scanButton" class="primary" type="button">Check it</button>
+        <button id="openFileButton" type="button">Open a file</button>
         <button id="sampleButton" type="button">Sample</button>
         <button id="clearButton" type="button">Clear</button>
+        <input id="fileInput" type="file" accept=".pdf,.docx,.txt,.md" hidden>
       </div>
-      <p class="fine-print">Plainsight is not legal advice. It helps you spot questions worth asking.</p>
+      <p id="fileStatus" class="file-status" role="status"></p>
+      <p class="fine-print">Plainsight is not legal advice. It helps you spot questions worth asking. Files open on this device and never leave it.</p>
     </section>
 
     <section class="results-pane" aria-label="Scan results">
       <div class="summary" id="summary">
         <p class="summary-label">No document checked yet.</p>
         <p class="summary-value">Paste text and run the check.</p>
+      </div>
+      <div class="export-row" aria-label="Save the report">
+        <button id="downloadReportButton" type="button" disabled>Download report</button>
+        <button id="downloadMarkdownButton" type="button" disabled>Text file</button>
       </div>
       <div class="filters" aria-label="Result filters">
         <button class="filter active" type="button" data-filter="all">All</button>
